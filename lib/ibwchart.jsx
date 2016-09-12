@@ -54,7 +54,7 @@ export default React.createClass({
     }
 
     return <div className="mzr-ibm-axes">
-      <div className="mzr-ibm-axe-y">
+      <div className="mzr-ibm-axe-y" data-text="ИМТ">
         {valuesY.map(function(value, i) {
           return <div key={i} className="mzr-ibm-item-y">
             <div className="mzr-ibm-digit-y">
@@ -63,7 +63,7 @@ export default React.createClass({
           </div>
         })}
       </div>
-      <div className="mzr-ibm-axe-x">
+      <div className="mzr-ibm-axe-x" data-text="Вес">
         {valuesX.map(function(value, i) {
           return <div key={i} className="mzr-ibm-item-x">
             <div className="mzr-ibm-digit-x">
