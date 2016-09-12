@@ -35,13 +35,15 @@ export default React.createClass({
   renderAxes: function() {
     var x = this.props.axex;
     var y = this.props.axey;
-    var diffX = x[1] - x[0];
-    var stepX = this.stepX = (diffX - (diffX % 28)) / 28;
-    var valueX = x[0] + stepX;
-    var valuesX = [];
     var stepY = this.stepY = 2;
     var valueY = y[1];
     var valuesY = [];
+    var itemsY = (y[1] - y[0]) / stepY;
+
+    var diffX = x[1] - x[0];
+    var stepX = this.stepX = (diffX - (diffX % itemsY)) / itemsY;
+    var valueX = x[0] + stepX;
+    var valuesX = [];
 
     while (valueX <= x[1]) {
       valuesX.push(valueX);
@@ -81,8 +83,9 @@ export default React.createClass({
     var width = this.props.width;
     var height = this.props.height;
 
-    var itemWidth = Math.floor((item.x - x[0]) / this.stepX) * width;
-    var itemHeight = Math.floor((item.y - y[0]) / this.stepY) * height;
+    var itemWidth = ((item.x - x[0]) / this.stepX) * width;
+    var itemHeight = ((item.y - y[0]) / this.stepY) * height;
+
 
     return <div
       onMouseOver={this.handleHover(item.id)}
