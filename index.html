@@ -1,0 +1,41 @@
+<html>
+<head>
+  <title>IBWChart Demo</title>
+</head>
+<body>
+  <div id="main"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.12.2/react.js"></script>
+  <script src="ibwchart.js"></script>
+  <script>
+    /* jshint undef:false */
+    React.render(React.createElement(Ibwchart, {
+      x: 62,
+      y: 30,
+      axex: [44, 117],
+      items: [
+        {
+          y: 16,
+          x: 48,
+          color: "#2ECC71",
+          id: 1
+        },
+        {
+          y: 22,
+          x: 54,
+          color: "#C13E3E",
+          id: 2
+        },
+        {
+          y: 42,
+          x: 117,
+          color: "#2049E2",
+          id: 3
+        }
+      ],
+      onHover: function(id) {
+        console.log(id);
+      }
+    }), document.getElementById('main'));
+  </script>
+</body>
+</html>
